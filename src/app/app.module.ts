@@ -10,6 +10,8 @@ import { CourseNavigatorComponent } from './course-navigator/course-navigator.co
 import { WhiteBoardComponent } from './white-board/white-board.component';
 import {CourseServiceClient} from './services/course.service.client';
 import { CourseGridComponent } from './course-grid/course-grid.component';
+import {routing} from './app.routing';
+import { CourseViewerComponent } from './course-viewer/course-viewer.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +20,13 @@ import { CourseGridComponent } from './course-grid/course-grid.component';
     HelloWorldTwoComponent,
     CourseNavigatorComponent,
     WhiteBoardComponent,
-    CourseGridComponent
+    CourseGridComponent,
+    CourseViewerComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    routing
   ],
   providers: [
     CourseNavigatorServiceClient,
