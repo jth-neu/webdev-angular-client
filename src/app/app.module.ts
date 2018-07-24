@@ -20,6 +20,8 @@ import { WidgetListComponent } from './widget-list/widget-list.component';
 import {WidgetServiceClient} from './services/widget.service.client';
 import { LoginComponent } from './login/login.component';
 import {UserServiceClient} from './services/user.service.client';
+import { ProfileComponent } from './profile/profile.component';
+import {SectionServiceClient} from './services/section.service.client';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import {UserServiceClient} from './services/user.service.client';
     ModuleListComponent,
     LessonTabsComponent,
     WidgetListComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import {UserServiceClient} from './services/user.service.client';
     ModuleServiceClient,
     LessonServiceClient,
     WidgetServiceClient,
-    UserServiceClient
+    UserServiceClient,
+    SectionServiceClient
   ],
   bootstrap: [AppComponent]
 })
