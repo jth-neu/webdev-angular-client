@@ -50,4 +50,15 @@ export class UserServiceClient {
       }
     });
   }
+
+  update(user) {
+    return fetch('http://localhost:4000/api/user', {
+      method: 'put',
+      body: JSON.stringify(user),
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      }
+    });
+  }
 }
