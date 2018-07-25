@@ -4,6 +4,7 @@ import {CourseViewerComponent} from './course-viewer/course-viewer.component';
 import {LoginComponent} from './login/login.component';
 import {ProfileComponent} from './profile/profile.component';
 import {RegisterComponent} from './register/register.component';
+import {SectionListComponent} from './section-list/section-list.component';
 
 
 const appRoutes: Routes = [
@@ -15,6 +16,7 @@ const appRoutes: Routes = [
   { path: 'course/:courseId', component: CourseViewerComponent },
   { path: 'course/:courseId/module/:moduleId', component: CourseViewerComponent },
   { path: 'course/:courseId/module/:moduleId/lesson/:lessonId', component: CourseViewerComponent },
+  { path: 'course/:courseId/section', component: SectionListComponent },
   { path: '**', component: WhiteBoardComponent} // last
 ];
 export const routing = RouterModule.forRoot(appRoutes);
