@@ -20,6 +20,8 @@ export class ProfileComponent implements OnInit {
   firstName;
   lastName;
   email;
+  phone;
+  address;
   sections = [];
 
   update() {
@@ -27,7 +29,9 @@ export class ProfileComponent implements OnInit {
       username : this.username,
       firstName : this.firstName,
       lastName: this.lastName,
-      email: this.email
+      email: this.email,
+      phone: this.phone,
+      address: this.address
     };
     this.service.update(user);
   }
@@ -44,10 +48,12 @@ export class ProfileComponent implements OnInit {
     this.service
       .profile()
       .then((user) => {
-          this.username = user.username,
-          this.firstName = user.firstName,
-            this.lastName = user.lastName,
+          this.username = user.username;
+          this.firstName = user.firstName;
+            this.lastName = user.lastName;
             this.email = user.email;
+          this.phone = user.phone;
+          this.address = user.address;
         }
       );
 
