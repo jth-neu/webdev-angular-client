@@ -43,6 +43,11 @@ export class ProfileComponent implements OnInit {
         this.router.navigate(['login']));
 
   }
+  loadSections() {
+    this.sectionService
+      .findSectionsForStudent()
+      .then(sections => this.sections = sections );
+  }
 
   ngOnInit() {
     this.service
@@ -56,10 +61,11 @@ export class ProfileComponent implements OnInit {
           this.address = user.address;
         }
       );
-
-    this.sectionService
-      .findSectionsForStudent()
-      .then(sections => this.sections = sections );
+    this.loadSections();
   }
-
+  withdraw(enrollment) {
+    this.sectionService
+      .withdrawStudentFromSection(enrollment.section._id)
+      .then(() => this.loadSections());
+  }
 }

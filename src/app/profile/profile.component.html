@@ -31,6 +31,8 @@
     <li *ngFor="let enrollment of sections" class="list-group-item">
       {{enrollment.section.name}}
       ({{enrollment.section.seats}})
+      <button (click)="withdraw(enrollment)"
+              class="float-right btn btn-danger">Withdraw</button>
     </li>
   </ul>
 
