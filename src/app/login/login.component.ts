@@ -12,15 +12,19 @@ export class LoginComponent implements OnInit {
   username;
   password;
   login(username, password) {
-    this.service
-      .login(username, password)
-      .then((user) => {
-        if (user === null) {
-          alert('Invalid username or password, please try again.');
-        } else {
-          this.router.navigate(['profile']);
-        }
-      });
+    if (username === undefined || password === undefined) {
+      alert('Username and password can not be empty.');
+    } else {
+      this.service
+        .login(username, password)
+        .then((user) => {
+          if (user === null) {
+            alert('Invalid username or password, please try again.');
+          } else {
+            this.router.navigate(['profile']);
+          }
+        });
+    }
   }
 
   constructor(private router: Router,
