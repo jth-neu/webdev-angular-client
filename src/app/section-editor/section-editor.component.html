@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <h3>{{course.title}}</h3>
+  <input [(ngModel)]="sectionName"
+         placeholder="{{course.title}} Section {{sections.length + 1}}"
+         class="form-control">
+  <input [(ngModel)]="seats"
+         placeholder="Seats available"
+         class="form-control">
+  <button (click)="createSection(sectionName, seats)" class="btn btn-success btn-block">
+    Add Section
+  </button>
+
+  <ul class="list-group">
+    <li *ngFor="let section of sections" class="list-group-item">
+      <span class="font-weight-bold">Name:</span>{{section.name}}
+      <span class="font-weight-bold">Available Seats:</span>{{section.seats}}
+      <button (click)="deleteSection(section)"
+              class="float-right btn btn-danger">Remove Section</button>
+    </li>
+  </ul>
+  <hr>
+</div>
