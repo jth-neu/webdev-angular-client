@@ -16,6 +16,7 @@ export class SectionEditorComponent implements OnInit {
   sections = [];
   sectionName = '';
   seats = '';
+  seatsMax = '';
   loadSections(courseId) {
     this.courseId = courseId;
     this
@@ -29,20 +30,36 @@ export class SectionEditorComponent implements OnInit {
       .then(() => this.loadSections(this.courseId));
   }
 
-  createSection(sectionName, seats) {
+  createSection(sectionName, seats, seatsMax) {
     if (sectionName === '') {
       sectionName = this.course.title + ' Section ' + (this.sections.length + 1);
     }
     if (seats === '') {
       seats = 0;
     }
-    this.service.createSection(this.courseId, sectionName, seats)
-      .then(() => this.loadSections(this.courseId));
+    if (seatsMax === '') {
+      seatsMax = 0;
+    }
+    this.service.createSection(this.courseId, sectionName, seats, seatsMax)
+      .then(() => this.loadSections(this.courseId))
+      .then(() => {
+        this.sectionName = '';
+        this.seats = '';
+        this.seatsMax = ''; });
   }
 
   ngOnInit() {
     this.courseId = this.course.id;
     this.loadSections(this.courseId);
+  }
+
+  update(section, newName, newSeat, newMax) {
+    this.service.update(section._id, newName, newSeat, newMax)
+      .then(() => this.loadSections(this.courseId))
+      .then(() => {
+        this.sectionName = '';
+        this.seats = '';
+        this.seatsMax = ''; });
   }
 
 }

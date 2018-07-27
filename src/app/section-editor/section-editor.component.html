@@ -6,16 +6,34 @@
   <input [(ngModel)]="seats"
          placeholder="Seats available"
          class="form-control">
-  <button (click)="createSection(sectionName, seats)" class="btn btn-success btn-block">
+  <input [(ngModel)]="seatsMax"
+         placeholder="Max Seats"
+         class="form-control">
+  <button (click)="createSection(sectionName, seats, seatsMax)" class="btn btn-success btn-block">
     Add Section
   </button>
 
+  <h4 *ngIf="sections.length != 0">Current Sections</h4>
   <ul class="list-group">
     <li *ngFor="let section of sections" class="list-group-item">
-      <span class="font-weight-bold">Name:</span>{{section.name}}
-      <span class="font-weight-bold">Available Seats:</span>{{section.seats}}
+      <span class="font-weight-bold">Name:</span>
+      <input [(ngModel)]="sectionName"
+             placeholder="{{section.name}}"
+             class="form-control">
+      <span class="font-weight-bold">Available Seats:</span>
+      <input [(ngModel)]="seats"
+             placeholder="{{section.seats}}"
+             class="form-control">
+      <span class="font-weight-bold">Max Seats:</span>
+      <input [(ngModel)]="seatsMax"
+             placeholder="{{section.seatsMax}}"
+             class="form-control">
       <button (click)="deleteSection(section)"
               class="float-right btn btn-danger">Remove Section</button>
+      <button (click)="update(section,sectionName,seats,seatsMax)"
+              class="btn btn-primary ">
+        Update
+      </button>
     </li>
   </ul>
   <hr>

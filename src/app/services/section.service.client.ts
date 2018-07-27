@@ -30,8 +30,8 @@ export class SectionServiceClient {
       .then(response => response.json());
   }
 
-  createSection(courseId, name, seats) {
-    const section = {courseId, name, seats};
+  createSection(courseId, name, seats, seatsMax) {
+    const section = {courseId, name, seats, seatsMax};
     return fetch(this.SECTION_URL.replace('COURSEID', courseId), {
       method: 'post',
       body: JSON.stringify(section),
@@ -45,6 +45,18 @@ export class SectionServiceClient {
   deleteSection(sectionId) {
     return fetch('http://localhost:4000/api/section' + '/' + sectionId, {
       method: 'delete'
+    });
+  }
+
+  update(sectionId, newName, newSeats, newMax) {
+    const section = {id: sectionId, newName: newName, newSeats: newSeats , newMax: newMax};
+    return fetch('http://localhost:4000/api/section' + '/' + sectionId, {
+      method: 'put',
+      body: JSON.stringify(section),
+      credentials: 'include',
+      headers: {
+        'content-type': 'application/json'
+      }
     });
   }
 }
