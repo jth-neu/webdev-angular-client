@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {SectionServiceClient} from '../services/section.service.client';
 import {CourseServiceClient} from '../services/course.service.client';
+import {UserServiceClient} from '../services/user.service.client';
 
 @Component({
   selector: 'app-section-list',
@@ -12,16 +13,16 @@ export class SectionListComponent implements OnInit {
 
   constructor(private service: SectionServiceClient,
               private courseService: CourseServiceClient,
+              private userService: UserServiceClient,
               private router: Router,
               private route: ActivatedRoute) {
     this.route.params.subscribe(params => this.loadSections(params['courseId']));
   }
-
-  sectionName = '';
   seats = '';
   courseId = '';
   sections = [];
   course;
+  loggedIn = false;
   loadSections(courseId) {
     this.courseId = courseId;
     this
@@ -29,16 +30,6 @@ export class SectionListComponent implements OnInit {
       .findSectionsForCourse(courseId)
       .then(sections => this.sections = sections);
   }
-
-  createSection(sectionName, seats) {
-    this
-      .service
-      .createSection(this.courseId, sectionName, seats)
-      .then(() => {
-        this.loadSections(this.courseId);
-      });
-  }
-
   enroll(section) {
     this.service
       .enrollStudentInSection(section._id)
@@ -52,6 +43,14 @@ export class SectionListComponent implements OnInit {
       .then((course) => {
         this.course = course;
       });
+    this.userService.profile()
+      .then(res => {
+        return res._id;
+      })
+      .then((userId) => {
+        if (userId !== null) {
+          this.loggedIn = true;
+        }
+      });
   }
-
 }
