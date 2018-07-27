@@ -56,4 +56,10 @@ export class CourseGridComponent implements OnInit {
     });
   }
 
+  logout() {
+    this.userService
+      .logout()
+      .then(() =>
+        this.router.navigate(['login']));
+  }
 }

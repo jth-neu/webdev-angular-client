@@ -1,17 +1,29 @@
-<h2> Enrolled Courses</h2>
-<div class="row">
-  <div *ngFor="let course of enrolledCourses" class="col-sm-3">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">{{course.title}}</h5>
-        <a routerLink="/course/{{course.id}}"
-           class="btn btn-info">View Course</a>
-        <br/>
+
+<div class="nav-buttons" *ngIf="loggedIn ">
+  <a class="btn btn-outline-primary btn-sm " routerLink="/profile">Profile</a>
+  <a class="btn btn-outline-danger btn-sm" (click)="logout()">Logout</a>
+</div>
+
+<div class="nav-buttons" *ngIf="!loggedIn ">
+  <a class="btn btn-outline-primary btn-sm " routerLink="/login">Login</a>
+  <a class="btn btn-outline-primary btn-sm" routerLink="/register">register</a>
+</div>
+
+<div *ngIf="loggedIn ">
+  <h2> Enrolled Courses</h2>
+    <div class="row">
+    <div *ngFor="let course of enrolledCourses" class="col-sm-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{course.title}}</h5>
+          <a routerLink="/course/{{course.id}}"
+             class="btn btn-info">View Course</a>
+          <br/>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
 
 <h2> List of Courses</h2>
 <div class="row">
