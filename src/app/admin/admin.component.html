@@ -1,6 +1,8 @@
 <div class="container-fluid">
 
   <h1>Admin</h1>
+  <a class="btn btn-sm btn-primary" routerLink="/home">Home</a>
+  <a class="btn btn-sm btn-primary" routerLink="/profile">Profile</a>
 
   <div *ngFor="let course of courses">
     <app-section-editor  [course]=course></app-section-editor>

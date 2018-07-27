@@ -39,6 +39,7 @@
   </ul>
 
   <a class="btn btn-sm btn-primary" routerLink="/home">Home</a>
+  <a class="btn btn-sm btn-outline-primary" *ngIf="username === 'admin'" routerLink="/admin">Admin</a>
   <a class="btn btn-sm btn-danger float-right" (click)="logout()">Logout</a>
 
 </div>
