@@ -6,12 +6,13 @@
          class="form-control"/>
   <input [(ngModel)]="password"
          placeholder="password"
+         type="password"
          class="form-control"/>
   <button (click)="login(username, password)"
           class="btn btn-primary btn-block">
     Login
   </button>
 
-  <a routerLink="/register">Register</a>
-  <a routerLink="/home">Home</a>
+  <a class="btn btn-sm btn-primary" routerLink="/register">Register</a>
+  <a class="btn btn-sm btn-primary float-right" routerLink="/home">Home</a>
 </div>
