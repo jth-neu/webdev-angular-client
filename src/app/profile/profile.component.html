@@ -29,10 +29,12 @@
 
   <ul class="list-group">
     <li *ngFor="let enrollment of sections" class="list-group-item">
-      {{enrollment.section.name}}
-      ({{enrollment.section.seats}})
+      <span class="font-weight-bold">Name:</span> {{enrollment.section.name}}
+      <span class="font-weight-bold">Available Seats:</span> {{enrollment.section.seats}}
       <button (click)="withdraw(enrollment)"
               class="float-right btn btn-danger">Withdraw</button>
+      <button (click)="toSectionPage(enrollment)"
+              class="float-right btn btn-primary">Sections</button>
     </li>
   </ul>
 

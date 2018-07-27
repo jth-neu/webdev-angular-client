@@ -68,4 +68,7 @@ export class ProfileComponent implements OnInit {
       .withdrawStudentFromSection(enrollment.section._id)
       .then(() => this.loadSections());
   }
+  toSectionPage(enrollment) {
+    this.router.navigate(['course/' + enrollment.section.courseId + '/section']);
+  }
 }
