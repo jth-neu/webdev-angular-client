@@ -17,20 +17,20 @@
   <ul class="list-group">
     <li *ngFor="let section of sections" class="list-group-item">
       <span class="font-weight-bold">Name:</span>
-      <input [(ngModel)]="sectionName"
+      <input [(ngModel)]="updateSectionName"
              placeholder="{{section.name}}"
              class="form-control">
       <span class="font-weight-bold">Available Seats:</span>
-      <input [(ngModel)]="seats"
+      <input [(ngModel)]="updateSeats"
              placeholder="{{section.seats}}"
              class="form-control">
       <span class="font-weight-bold">Max Seats:</span>
-      <input [(ngModel)]="seatsMax"
+      <input [(ngModel)]="updateSeatsMax"
              placeholder="{{section.seatsMax}}"
              class="form-control">
       <button (click)="deleteSection(section)"
               class="float-right btn btn-danger">Remove Section</button>
-      <button (click)="update(section,sectionName,seats,seatsMax)"
+      <button (click)="update(section,updateSectionName,updateSeats,updateSeatsMax)"
               class="btn btn-primary ">
         Update
       </button>

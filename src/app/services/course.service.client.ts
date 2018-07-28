@@ -1,9 +1,5 @@
 export class CourseServiceClient {
   COURSE_URL = 'http://localhost:8080/api/course';
-  findPublicCourses() {
-    return fetch(this.COURSE_URL + '/public')
-      .then(response => response.json());
-  }
 
   findAllCourses() {
     return fetch(this.COURSE_URL)

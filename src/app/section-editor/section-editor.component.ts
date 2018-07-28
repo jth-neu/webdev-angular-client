@@ -17,6 +17,9 @@ export class SectionEditorComponent implements OnInit {
   sectionName = '';
   seats = '';
   seatsMax = '';
+  updateSectionName = '';
+  updateSeats = '';
+  updateSeatsMax = '';
   loadSections(courseId) {
     this.courseId = courseId;
     this
@@ -38,7 +41,7 @@ export class SectionEditorComponent implements OnInit {
       seats = 0;
     }
     if (seatsMax === '') {
-      seatsMax = 0;
+      seatsMax = 50;
     }
     this.service.createSection(this.courseId, sectionName, seats, seatsMax)
       .then(() => this.loadSections(this.courseId))

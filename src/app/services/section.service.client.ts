@@ -49,7 +49,7 @@ export class SectionServiceClient {
   }
 
   update(sectionId, newName, newSeats, newMax) {
-    const section = {id: sectionId, newName: newName, newSeats: newSeats , newMax: newMax};
+    const section = {id: sectionId, name: newName, seats: newSeats , seatsMax: newMax};
     return fetch('http://localhost:4000/api/section' + '/' + sectionId, {
       method: 'put',
       body: JSON.stringify(section),
