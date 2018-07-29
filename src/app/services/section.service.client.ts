@@ -1,9 +1,9 @@
 export class SectionServiceClient {
 
-  SECTION_URL = 'http://localhost:4000/api/course/COURSEID/section';
+  SECTION_URL = 'https://mighty-badlands-90546.herokuapp.com/api/course/COURSEID/section';
 
   findSectionsForStudent() {
-    const url = 'http://localhost:4000/api/student/section';
+    const url = 'https://mighty-badlands-90546.herokuapp.com/api/student/section';
     return fetch(url, {
       credentials: 'include'
     })
@@ -11,14 +11,14 @@ export class SectionServiceClient {
   }
 
   enrollStudentInSection(sectionId) {
-    const url = 'http://localhost:4000/api/section/' + sectionId + '/enrollment';
+    const url = 'https://mighty-badlands-90546.herokuapp.com/api/section/' + sectionId + '/enrollment';
     return fetch(url, {
       method: 'post',
       credentials: 'include'
     });
   }
   withdrawStudentFromSection(sectionId) {
-    const url = 'http://localhost:4000/api/section/' + sectionId + '/withdraw';
+    const url = 'https://mighty-badlands-90546.herokuapp.com/api/section/' + sectionId + '/withdraw';
     return fetch(url, {
       method: 'delete',
       credentials: 'include'
@@ -43,14 +43,14 @@ export class SectionServiceClient {
   }
 
   deleteSection(sectionId) {
-    return fetch('http://localhost:4000/api/section' + '/' + sectionId, {
+    return fetch('https://mighty-badlands-90546.herokuapp.com/api/section' + '/' + sectionId, {
       method: 'delete'
     });
   }
 
   update(sectionId, newName, newSeats, newMax) {
     const section = {id: sectionId, name: newName, seats: newSeats , seatsMax: newMax};
-    return fetch('http://localhost:4000/api/section' + '/' + sectionId, {
+    return fetch('https://mighty-badlands-90546.herokuapp.com/api/section' + '/' + sectionId, {
       method: 'put',
       body: JSON.stringify(section),
       credentials: 'include',
